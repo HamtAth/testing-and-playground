@@ -1,6 +1,7 @@
 :root {
   --accent: #d6336c;
   --ink: #1d2433;
+  --wave: #00c2c7;      /* sci-fi greenish blue */
   --wave-size: 900px; /* final diameter of the wave */
 }
 
@@ -56,13 +57,15 @@ body { font-family: system-ui, sans-serif; color: var(--ink); overflow: hidden; 
   position: absolute; left: 50%; top: 100%;
   width: var(--wave-size); height: var(--wave-size);
   margin: calc(var(--wave-size) / -2) 0 0 calc(var(--wave-size) / -2);
-  border: 6px solid var(--accent); border-radius: 50%;
-  background: radial-gradient(circle closest-side, transparent 55%, rgb(214 51 108 / .35));
+  border: 8px solid var(--wave); border-radius: 50%;
+  box-shadow: 0 0 24px var(--wave), inset 0 0 24px var(--wave);
+  background: radial-gradient(circle closest-side, transparent 55%, rgb(0 180 205 / .6));
   pointer-events: none; opacity: 0;
   animation: wave 1.6s .42s cubic-bezier(.2, .6, .35, 1);
 }
 @keyframes wave {
   from { transform: scale(0); opacity: 1; }
+  50%  { opacity: .85; }
   to   { transform: scale(1); opacity: 0; }
 }
 
